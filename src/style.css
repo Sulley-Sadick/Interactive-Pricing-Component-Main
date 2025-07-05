@@ -5,133 +5,134 @@
 @import "tailwindcss";
 
 @layer base {
-    :root {
-        /* colors */
+  :root {
+    /* colors */
 
-        --full-slider-bar-color: hsl(174, 77%, 80%);
-        --slider-bg-color: hsl(174, 86%, 45%);
-        --discount-bg-color: hsl(14, 92%, 95%);
-        --discount-text: hsl(15, 100%, 70%);
-        --pricing-component-bg: hsl(0, 0%, 100%);
-        --main-bg: hsl(230, 100%, 99%);
-        --empty-slider-bar: hsl(224, 65%, 95%);
-        --toggle-bg: hsl(223, 50%, 87%);
-        --text-color: hsl(225, 20%, 60%);
-        --cta-bg-color: hsl(227, 35%, 25%);
-        --cta-text-color: hsl(226, 100%, 87%);
+    --full-slider-bar-color: hsl(174, 77%, 80%);
+    --slider-bg-color: hsl(174, 86%, 45%);
+    --discount-bg-color: hsl(14, 92%, 95%);
+    --discount-text-color: hsl(15, 100%, 70%);
+    --pricing-component-bg: hsl(0, 0%, 100%);
+    --main-bg: hsl(230, 100%, 99%);
+    --empty-slider-bg-color: hsl(224, 65%, 95%);
+    --toggle-bg: hsl(223, 50%, 87%);
+    --text-color: hsl(225, 20%, 60%);
+    --cta-bg-color: hsl(227, 35%, 25%);
+    --cta-text-color: hsl(226, 100%, 87%);
 
-        /* Typography */
-        --introductory-font-size: 15px;
-        --font-family: "Manrope", sans-serif;
-        --font-weight-600: 600;
-        --font-weight-800: 800;
-    }
+    /* Typography */
+    --font-family: "Manrope", sans-serif;
+    --font-weight-600: 600;
+    --font-weight-800: 800;
+  }
 }
 
 /* layer styles */
 @layer utilities {
-    /* mobile screen  */
+  /* mobile screen  */
+  .body-bg-img {
+    background-image: url("/images/bg-pattern.svg");
+    background-repeat: no-repeat;
+    background-size: 112rem;
+  }
+
+  /* screen at 640px */
+  @media (min-width: 46.8rem) {
     .body-bg-img {
-        background-image: url("/images/bg-pattern.svg");
-        background-repeat: no-repeat;
-        background-position: top-right;
-        background-size: 112rem;
+      background-size: 105rem;
     }
+  }
+  /* header img */
+  .header-bg-img {
+    background-image: url("/images/pattern-circles.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 13.5rem;
+  }
 
-    /* screen at 640px */
-    @media (min-width: 46.8rem) {
-        .body-bg-img {
-            background-size: 105rem;
-        }
-    }
-    /* header img */
-    .header-bg-img {
-        background-image: url("/images/pattern-circles.svg");
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: 12.5rem;
-    }
+  /* font family */
+  .font-custom {
+    font-family: var(--font-family);
+  }
 
-    /* font family */
-    .font-custom {
-        font-family: var(--font-family);
-    }
+  /* main range slider styles */
+  input[type="range"] {
+    width: 100%;
+    appearance: none;
+    height: 10px;
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      var(--full-slider-bar-color) 30%,
+      var(--empty-slider-bg-color) 63%
+    );
+    border-radius: 5px;
+  }
 
-    /* main range slider styles */
-    input[type="range"] {
-        appearance: none;
-        height: 10px;
-        cursor: pointer;
-        background: linear-gradient(
-            90deg,
-            var(--full-slider-bar-color) 30%,
-            var(--empty-slider-bar)
-        );
-    }
+  /* Range slider thumb button for Chrome/Safari */
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    background: var(--slider-bg-color) url("/images/icon-slider.svg") no-repeat
+      center;
+    border-radius: 50%;
+    box-shadow: 0px 20px 35px 20px var(--full-slider-bar-color);
+    cursor: grab;
+  }
 
-    /* Range slider thumb button for Chrome/Safari */
-    input[type="range"]::-webkit-slider-thumb {
-        appearance: none;
-        width: 38px;
-        height: 38px;
-        background: var(--slider-bg-color) url("/images/icon-slider.svg")
-            no-repeat center;
-        border-radius: 50%;
-        box-shadow: 0px 20px 35px 20px var(--full-slider-bar-color);
-    }
+  /* Range slider thumb button for FireFox */
+  input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    background: var(--slider-bg-color) url("/images/icon-slider.svg") no-repeat
+      center;
+    border-radius: 50%;
+    box-shadow: 0px 12px 20px var(--full-slider-bar-color);
+  }
 
-    /* Range slider thumb button for FireFox */
-    input[type="range"]::-moz-range-thumb {
-        appearance: none;
-        width: 38px;
-        height: 38px;
-        background: var(--slider-bg-color) url("/images/icon-slider.svg")
-            no-repeat center;
-        border-radius: 50%;
-        box-shadow: 0px 12px 20px var(--full-slider-bar-color);
-    }
+  /* toggle container styles */
+  .toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--toggle-bg);
+    border-radius: 35px;
+    cursor: pointer;
+  }
 
-    /* toggle container styles */
-    .toggle {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background: var(--toggle-bg);
-        border-radius: 35px;
-        cursor: pointer;
-    }
+  /* toggle button styles */
+  .toggle::before {
+    position: absolute;
+    content: "";
+    width: 17px;
+    height: 17px;
+    left: 5px;
+    bottom: 3.8px;
+    background: var(--pricing-component-bg);
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    transition: 0.4s;
+  }
 
-    /* toggle button styles */
-    .toggle::before {
-        position: absolute;
-        content: "";
-        width: 15px;
-        height: 15px;
-        left: 5px;
-        bottom: 3.8px;
-        background: var(--pricing-component-bg);
-        border-radius: 50%;
-        -webkit-transition: 0.4s;
-        -moz-transition: 0.4s;
-        transition: 0.4s;
-    }
+  /* hover effect styles */
+  .toggle:hover {
+    background: var(--full-slider-bar-color);
+  }
 
-    /* hover effect styles */
-    .toggle:hover {
-        background: var(--full-slider-bar-color);
-    }
+  /* input on focus styles */
+  input[type="checkbox"]:focus + .toggle {
+    box-shadow: 1px 0px var(--full-slider-bar-color);
+  }
 
-    /* input on focus styles */
-    input[type="checkbox"]:focus + .toggle {
-        box-shadow: 1px 0px var(--full-slider-bar-color);
-    }
-
-    /* when input is clicked / checked */
-    input[type="checkbox"]:checked + .toggle::before {
-        -webkit-transform: translate(24px);
-        -moz-transform: translate(24px);
-        transform: translate(24px);
-    }
+  /* when input is clicked / checked */
+  input[type="checkbox"]:checked + .toggle::before {
+    -webkit-transform: translate(22px);
+    -moz-transform: translate(22px);
+    transform: translate(22px);
+  }
 }

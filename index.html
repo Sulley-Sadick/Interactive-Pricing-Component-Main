@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -13,29 +12,163 @@
     />
 
     <title>Frontend Mentor | Interactive pricing component</title>
-    <link rel="stylesheet" href="/src/style.css" />
-
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body class="">
-    Simple, traffic-based pricing Sign-up for our 30-day trial. No credit card
-    required. Pageviews $ /month Monthly Billing Yearly Billing 25% discount
-    Unlimited websites 100% data ownership Email reports Start my trial
+  <body
+    class="body-bg-img font-custom nth flex min-h-[100vh] w-full flex-col items-center justify-center px-2 text-center text-[var(--text-color)] sm:px-6"
+  >
+    <!-- header -->
+    <header class="header-bg-img mt-[5rem] h-[15rem] pt-[3.5rem]">
+      <h1
+        class="text-[1.5rem] font-[var(--font-weight-800)] text-[var(--cta-bg-color)] sm:text-4xl"
+      >
+        Simple, traffic-based pricing
+      </h1>
+      <h3
+        class="mt-[.8rem] px-[2.8rem] text-[1.2rem] leading-[2.2rem] font-[var(--font-weight-600)] md:text-[15px]"
+      >
+        Sign-up for our 30-day trial. No credit card required.
+      </h3>
+    </header>
+    <!-- end of header -->
+    <main
+      class="mx-4 mt-4 mb-4 w-full rounded-2xl bg-[var(--pricing-component-bg)] px-4 py-[2rem] shadow-2xl sm:max-w-[46rem] sm:px-[3rem]"
+    >
+      <!-- first section -->
+      <section>
+        <div
+          class="mb-[2.5rem] sm:grid sm:grid-cols-2 sm:grid-rows-2 sm:items-center"
+        >
+          <div
+            class="sm:col-start-1 sm:col-end-2 sm:row-start-1 sm:justify-self-start"
+          >
+            <p class="font-[var(--font-weight-600)] uppercase" id="page-views">
+              100k Pageviews
+            </p>
+          </div>
+          <div class="sm:col-start-1 sm:col-end-3 sm:row-start-2">
+            <form action="#" class="my-[2rem]">
+              <label for="range-input">
+                <input
+                  type="range"
+                  name="range"
+                  id="range-slider"
+                  title="range slider"
+                  min="0"
+                  max="4"
+                  value="2"
+                />
+              </label>
+            </form>
+          </div>
+          <div
+            class="relative sm:col-start-2 sm:col-end-3 sm:row-start-1 sm:flex sm:items-center sm:gap-2 sm:justify-self-end"
+          >
+            <p
+              id="billing-amount"
+              class="mb-[2.5rem mt-[4rem] text-4xl font-[var(--font-weight-800)] text-[var(--cta-bg-color)] sm:mt-0"
+            >
+              $16.00
+            </p>
+            <span
+              id="span"
+              class="absolute top-2 right-6 text-[1rem] font-[var(--font-weight-600)] text-[var(--text-color)] sm:static"
+            >
+              / month</span
+            >
+          </div>
+        </div>
+      </section>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Sadick Sulley</a>.
-    </div>
-    <script type="modules" src="/src/main.js"></script>
+      <!-- end of first section -->
+
+      <!-- second section -->
+      <section class="flex items-center justify-center gap-[1rem]">
+        <p class="">Monthly Billing</p>
+        <form action="#">
+          <label
+            for="toggle-button"
+            class="relative inline-block h-[25px] w-[50px]"
+          >
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="toggle-button"
+              title="toggle button"
+              class="h-0 w-0 opacity-0"
+            />
+            <span class="toggle"></span>
+          </label>
+        </form>
+        <p class="relative">
+          Yearly Billing<span
+            id="discount-text"
+            class="py-0.7 absolute top-1 -right-[60px] mx-2 overflow-hidden rounded-4xl bg-[var(--discount-bg-color)] px-2.5 text-[.8rem] font-[var(--font-weight-800)] text-[var(--discount-text-color)] sm:-top-1.5 sm:-right-[125px] sm:px-3 sm:py-2 sm:after:content-['_discount']"
+            >25%
+          </span>
+        </p>
+      </section>
+
+      <!-- hr -->
+
+      <hr class="mt-[3.2rem] mb-[2.5rem] text-[var(--empty-slider-bg-color)]" />
+
+      <!-- end of second section -->
+
+      <!-- third section -->
+      <section
+        class="items-center font-[var(--font-weight-600)] sm:flex sm:justify-between"
+      >
+        <div class="[&>*]:mb-4">
+          <div class="flex items-center justify-center sm:justify-start">
+            <img
+              src="/images/icon-check.svg"
+              alt="check icon"
+              class="mr-4 w-[.8rem]"
+            />
+            <p>Unlimited websites</p>
+          </div>
+          <div class="flex items-center justify-center sm:justify-start">
+            <img
+              src="/images/icon-check.svg"
+              alt="check icon"
+              class="mr-4 w-[.8rem]"
+            />
+            <p>100% data ownership</p>
+          </div>
+          <div class="flex items-center justify-center sm:justify-start">
+            <img
+              src="/images/icon-check.svg"
+              alt="check icon"
+              class="mr-4 w-[.8rem]"
+            />
+            <p>Email reports</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="mt-6 cursor-pointer rounded-4xl bg-[var(--cta-bg-color)] px-[4rem] py-[1rem] text-[var(--cta-text-color)] transition-colors duration-500 ease-in-out hover:border hover:border-[var(--cta-bg-color)] hover:bg-[var(--pricing-component-bg-color)] hover:text-[var(--cta-bg-color)] sm:mb-[1.5rem]"
+        >
+          Start my trial
+        </button>
+      </section>
+      <!-- end of third section -->
+    </main>
+    <!-- end of main  -->
+
+    <!-- footer -->
+    <footer>
+      <div class="text-center text-[1rem]">
+        Challenge by
+        <a
+          class="text-[#3e52a3]"
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#" class="text-[#3e52a3]">Sadick Sulley</a>.
+      </div>
+    </footer>
+    <!-- end of footer -->
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
